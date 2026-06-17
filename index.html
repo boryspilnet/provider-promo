@@ -1,54 +1,306 @@
+```html
 <!DOCTYPE html>
 <html lang="uk">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Акції Провайдера</title>
+<title>Boryspil.net - Акції та тарифи</title>
 
 <style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
 body{
-    font-family: Arial, sans-serif;
-    max-width:800px;
+    font-family:Arial,sans-serif;
+    background:#f5f7fa;
+    color:#333;
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
     margin:auto;
-    padding:20px;
-    background:#f5f5f5;
 }
 
-.card{
+header{
     background:white;
-    padding:20px;
-    border-radius:10px;
-    margin-bottom:20px;
-    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+    padding:20px 0;
 }
 
-h1{
+.header-content{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    height:70px;
+}
+
+.phones{
+    text-align:right;
+    font-size:24px;
+    font-weight:bold;
+    color:#1c2faa;
+}
+
+.hero{
+    background:
+    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+    url("images/bg.jpg");
+
+    background-size:cover;
+    background-position:center;
+    color:white;
+    padding:80px 0;
+}
+
+.hero h1{
+    font-size:64px;
+    max-width:700px;
+    margin-bottom:30px;
+}
+
+.features{
+    list-style:none;
+    font-size:28px;
+    line-height:1.8;
+}
+
+.promo-box{
+    margin-top:40px;
+    background:white;
+    color:#0f2f90;
+    padding:25px;
+    border-radius:20px;
+    max-width:700px;
+}
+
+.promo-box h2{
+    color:#ff7a00;
+    margin-bottom:15px;
+}
+
+.tariffs{
+    padding:70px 0;
     text-align:center;
 }
 
-.date{
-    color:red;
+.tariffs h2{
+    font-size:48px;
+    margin-bottom:50px;
+    color:#103d95;
+}
+
+.cards{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.card{
+    width:250px;
+    background:white;
+    border-radius:15px;
+    padding:25px;
+    box-shadow:0 0 10px rgba(0,0,0,.1);
+}
+
+.card h3{
+    color:#103d95;
+    font-size:34px;
+}
+
+.speed{
+    font-size:40px;
+    color:#ff7a00;
+    margin:20px 0;
     font-weight:bold;
 }
-</style>
 
+.price{
+    background:#0f58d0;
+    color:white;
+    padding:15px;
+    border-radius:10px;
+    font-size:26px;
+    font-weight:bold;
+}
+
+.contact{
+    text-align:center;
+    padding:80px 20px;
+}
+
+.contact h2{
+    font-size:48px;
+    color:#103d95;
+}
+
+.contact p{
+    margin:20px 0;
+    font-size:24px;
+}
+
+.viber-btn{
+    display:inline-block;
+    margin-top:20px;
+    background:#7360f2;
+    color:white;
+    text-decoration:none;
+    padding:20px 40px;
+    border-radius:15px;
+    font-size:28px;
+    font-weight:bold;
+}
+
+footer{
+    background:#003d9f;
+    color:white;
+    text-align:center;
+    padding:30px;
+    margin-top:40px;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:42px;
+}
+
+.features{
+    font-size:20px;
+}
+
+.phones{
+    font-size:18px;
+}
+
+.header-content{
+    flex-direction:column;
+    gap:20px;
+}
+
+}
+
+</style>
 </head>
+
 <body>
 
-<h1>🔥 Актуальні акції</h1>
+<header>
+<div class="container header-content">
+
+<img src="images/logo.png" class="logo">
+
+<div class="phones">
+(095) 222-71-41<br>
+(096) 141-71-41<br>
+(093) 506-18-18
+</div>
+
+</div>
+</header>
+
+<section class="hero">
+
+<div class="container">
+
+<h1>НАЙКРАЩИЙ ІНТЕРНЕТ ТВОГО МІСТА</h1>
+
+<ul class="features">
+<li>✔ Підключення по оптоволокну</li>
+<li>✔ Робота інтернету 24/7</li>
+<li>✔ Інтернет-телебачення</li>
+<li>✔ Цілодобова технічна підтримка</li>
+<li>✔ Безкоштовне підключення при оплаті за 3 місяці</li>
+</ul>
+
+<div class="promo-box">
+
+<h2>🎁 Спеціальна акція</h2>
+
+<p>
+При оплаті інтернету за 3 місяці —
+підключення безкоштовне.
+</p>
+
+<p style="margin-top:15px;">
+Кошти зараховуються на ваш особовий рахунок
+і будуть використані для майбутньої абонплати.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="tariffs">
+
+<div class="container">
+
+<h2>Наші тарифи</h2>
+
+<div class="cards">
 
 <div class="card">
-    <h2>Підключення за 1 грн</h2>
-    <p class="date">До 31.07.2026</p>
-    <p>Для нових абонентів.</p>
+<h3>Flat 50</h3>
+<div class="speed">50 Мб/с</div>
+<div class="price">230 грн/міс</div>
 </div>
 
 <div class="card">
-    <h2>Перший місяць безкоштовно</h2>
-    <p class="date">До 31.07.2026</p>
-    <p>При підключенні тарифів від 300 грн.</p>
+<h3>Flat 100</h3>
+<div class="speed">100 Мб/с</div>
+<div class="price">290 грн/міс</div>
 </div>
+
+<div class="card">
+<h3>Flat 300</h3>
+<div class="speed">300 Мб/с</div>
+<div class="price">340 грн/міс</div>
+</div>
+
+<div class="card">
+<h3>Flat 1000</h3>
+<div class="speed">1000 Мб/с</div>
+<div class="price">440 грн/міс</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="contact">
+
+<h2>Вас зацікавило?</h2>
+
+<p>
+Напишіть нам у Viber і ми відповімо на всі питання.
+</p>
+
+<a class="viber-btn"
+href="viber://chat?number=%2B380XXXXXXXXX">
+Написати у Viber
+</a>
+
+</section>
+
+<footer>
+
+© 2026 Boryspil.net
+
+</footer>
 
 </body>
 </html>
+```
