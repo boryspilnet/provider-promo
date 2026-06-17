@@ -16,9 +16,9 @@
 }
 
 body{
-    font-family:Arial,sans-serif;
+    font-family:Arial, sans-serif;
     background:#f5f7fa;
-    color:#333;
+    color:#222;
 }
 
 .container{
@@ -30,6 +30,10 @@ body{
 header{
     background:white;
     padding:20px 0;
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+    position:sticky;
+    top:0;
+    z-index:100;
 }
 
 .header-content{
@@ -44,41 +48,54 @@ header{
 
 .phones{
     text-align:right;
-    font-size:24px;
+    color:#1a2ba5;
     font-weight:bold;
-    color:#1c2faa;
+    font-size:24px;
 }
 
 .hero{
     background:
-    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
-    url("images/bg.jpg");
+    linear-gradient(
+        rgba(0,0,0,.45),
+        rgba(0,0,0,.75)
+    ),
+    url("bg.png");
 
     background-size:cover;
     background-position:center;
+
     color:white;
-    padding:80px 0;
+    padding:120px 0;
 }
 
 .hero h1{
-    font-size:64px;
+    font-size:72px;
+    font-weight:900;
+    line-height:1.05;
     max-width:700px;
-    margin-bottom:30px;
+    margin-bottom:40px;
+    text-shadow:0 5px 25px rgba(0,0,0,.7);
 }
 
 .features{
     list-style:none;
-    font-size:28px;
+    font-size:30px;
     line-height:1.8;
+    text-shadow:0 3px 15px rgba(0,0,0,.8);
+}
+
+.features li{
+    margin-bottom:8px;
 }
 
 .promo-box{
-    margin-top:40px;
+    margin-top:50px;
+    max-width:750px;
     background:white;
-    color:#0f2f90;
-    padding:25px;
+    color:#1a2ba5;
+    padding:30px;
     border-radius:20px;
-    max-width:700px;
+    box-shadow:0 10px 25px rgba(0,0,0,.2);
 }
 
 .promo-box h2{
@@ -87,88 +104,123 @@ header{
 }
 
 .tariffs{
-    padding:70px 0;
+    padding:80px 0;
     text-align:center;
 }
 
 .tariffs h2{
-    font-size:48px;
+    font-size:52px;
+    color:#123c97;
     margin-bottom:50px;
-    color:#103d95;
 }
 
 .cards{
     display:flex;
-    gap:20px;
     flex-wrap:wrap;
     justify-content:center;
+    gap:25px;
 }
 
 .card{
-    width:250px;
     background:white;
-    border-radius:15px;
-    padding:25px;
-    box-shadow:0 0 10px rgba(0,0,0,.1);
+    width:250px;
+    border-radius:18px;
+    padding:30px 20px;
+    box-shadow:0 0 20px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
 }
 
 .card h3{
-    color:#103d95;
+    color:#123c97;
     font-size:34px;
 }
 
 .speed{
-    font-size:40px;
+    margin:25px 0;
     color:#ff7a00;
-    margin:20px 0;
+    font-size:42px;
     font-weight:bold;
 }
 
 .price{
-    background:#0f58d0;
+    background:#0057d8;
     color:white;
     padding:15px;
-    border-radius:10px;
-    font-size:26px;
+    border-radius:12px;
+    font-size:24px;
     font-weight:bold;
 }
 
 .contact{
-    text-align:center;
     padding:80px 20px;
+    text-align:center;
+    background:white;
 }
 
 .contact h2{
-    font-size:48px;
-    color:#103d95;
+    font-size:54px;
+    color:#123c97;
 }
 
 .contact p{
-    margin:20px 0;
+    margin-top:20px;
     font-size:24px;
 }
 
 .viber-btn{
     display:inline-block;
-    margin-top:20px;
+    margin-top:35px;
     background:#7360f2;
     color:white;
     text-decoration:none;
-    padding:20px 40px;
+    padding:22px 50px;
     border-radius:15px;
     font-size:28px;
     font-weight:bold;
+    transition:.3s;
+}
+
+.viber-btn:hover{
+    transform:scale(1.03);
+}
+
+.advantages{
+    background:#003f9c;
+    color:white;
+    padding:60px 0;
+}
+
+.advantages-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:25px;
+    text-align:center;
+}
+
+.adv{
+    padding:15px;
+}
+
+.adv h3{
+    margin-bottom:15px;
 }
 
 footer{
-    background:#003d9f;
+    background:#002b6d;
     color:white;
     text-align:center;
     padding:30px;
-    margin-top:40px;
 }
 
 @media(max-width:768px){
+
+.hero{
+    padding:80px 0;
+}
 
 .hero h1{
     font-size:42px;
@@ -178,13 +230,18 @@ footer{
     font-size:20px;
 }
 
+.header-content{
+    flex-direction:column;
+    gap:15px;
+}
+
 .phones{
+    text-align:center;
     font-size:18px;
 }
 
-.header-content{
-    flex-direction:column;
-    gap:20px;
+.contact h2{
+    font-size:38px;
 }
 
 }
@@ -197,7 +254,7 @@ footer{
 <header>
 <div class="container header-content">
 
-<img src="images/logo.png" class="logo">
+<img src="logo.png" class="logo" alt="Boryspil.net">
 
 <div class="phones">
 (095) 222-71-41<br>
@@ -212,28 +269,40 @@ footer{
 
 <div class="container">
 
-<h1>НАЙКРАЩИЙ ІНТЕРНЕТ ТВОГО МІСТА</h1>
+<h1>
+НАЙКРАЩИЙ ІНТЕРНЕТ<br>
+ТВОГО МІСТА
+</h1>
 
 <ul class="features">
 <li>✔ Підключення по оптоволокну</li>
-<li>✔ Робота інтернету 24/7</li>
-<li>✔ Інтернет-телебачення</li>
+<li>✔ Гарантована робота інтернету 24/7</li>
+<li>✔ Послуги інтернет-телебачення</li>
 <li>✔ Цілодобова технічна підтримка</li>
 <li>✔ Безкоштовне підключення при оплаті за 3 місяці</li>
 </ul>
 
 <div class="promo-box">
 
-<h2>🎁 Спеціальна акція</h2>
+<h2>🎁 Акція для нових абонентів</h2>
 
 <p>
 При оплаті інтернету за 3 місяці —
-підключення безкоштовне.
+підключення виконується безкоштовно.
 </p>
 
-<p style="margin-top:15px;">
+<br>
+
+<p>
 Кошти зараховуються на ваш особовий рахунок
-і будуть використані для майбутньої абонплати.
+та використовуються для майбутньої абонентської плати.
+</p>
+
+<br>
+
+<p>
+При оплаті за 6 місяців —
+7-й місяць надається безкоштовно.
 </p>
 
 </div>
@@ -285,19 +354,61 @@ footer{
 <h2>Вас зацікавило?</h2>
 
 <p>
-Напишіть нам у Viber і ми відповімо на всі питання.
+Напишіть нам у Viber і ми відповімо на всі ваші запитання.
 </p>
 
-<a class="viber-btn"
-href="viber://chat?number=%2B380XXXXXXXXX">
-Написати у Viber
+<a
+class="viber-btn"
+href="https://viber.click/380XXXXXXXXX"
+target="_blank">
+
+📱 Написати у Viber
+
 </a>
+
+</section>
+
+<section class="advantages">
+
+<div class="container">
+
+<div class="advantages-grid">
+
+<div class="adv">
+<h3>Оптоволоконний інтернет</h3>
+<p>Стабільне та швидке з'єднання</p>
+</div>
+
+<div class="adv">
+<h3>Інтернет-ТБ</h3>
+<p>Великий вибір телеканалів</p>
+</div>
+
+<div class="adv">
+<h3>Підтримка 24/7</h3>
+<p>Допоможемо у будь-який час</p>
+</div>
+
+<div class="adv">
+<h3>Технічна підтримка</h3>
+<p>Швидке вирішення питань</p>
+</div>
+
+<div class="adv">
+<h3>Вигідні умови</h3>
+<p>Акції та чесні тарифи</p>
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 <footer>
 
-© 2026 Boryspil.net
+<p><strong>Boryspil.net</strong></p>
+<p>© 2026 Всі права захищені</p>
 
 </footer>
 
