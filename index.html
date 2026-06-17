@@ -9,7 +9,662 @@
 <style>
 
 *{
+    margin:0;<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boryspil.net — Найкращий інтернет твого міста</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<!-- Бібліотека іконок Font Awesome (CDN) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script>
+  // Фолбек: якщо CDN Font Awesome недоступний (немає інтернету/блокування), підмінюємо іконки на inline SVG,
+  // щоб сторінка коректно відображалась офлайн.
+  window.addEventListener('DOMContentLoaded', function () {
+    var testIcon = document.createElement('i');
+    testIcon.className = 'fa-solid fa-check';
+    testIcon.style.position = 'absolute';
+    testIcon.style.visibility = 'hidden';
+    document.body.appendChild(testIcon);
+
+    function fontAwesomeLoaded() {
+      var fam = getComputedStyle(testIcon, ':before').fontFamily || '';
+      return fam.toLowerCase().indexOf('awesome') !== -1;
+    }
+
+    setTimeout(function () {
+      if (!fontAwesomeLoaded()) {
+        var svgMap = {
+          'fa-phone': '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.5 2.5.8 3.8.8.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.4 21 3 13.6 3 4.8c0-.6.4-1 1-1h3.2c.6 0 1 .4 1 1 0 1.3.3 2.6.8 3.8.1.3.1.7-.2 1l-2.2 2.2z"/></svg>',
+          'fa-check': '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 6L9 17l-5-5"/></svg>',
+          'fa-gift': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="9" width="18" height="11" rx="1"/><path d="M3 13h18M12 9v11M7.5 9a2.5 2.5 0 110-5C9.5 4 12 6 12 9M16.5 9a2.5 2.5 0 100-5C14.5 4 12 6 12 9"/></svg>',
+          'fa-diagram-project': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="6" cy="6" r="2.3"/><circle cx="18" cy="6" r="2.3"/><circle cx="12" cy="18" r="2.3"/><path d="M7.8 7.6L12 15.7M16.2 7.6L12 15.7"/></svg>',
+          'fa-tv': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="13" rx="1.5"/><path d="M8 21h8"/></svg>',
+          'fa-clock': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>',
+          'fa-headset': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 13a8 8 0 0116 0"/><rect x="2.5" y="13" width="4" height="6" rx="1.3"/><rect x="17.5" y="13" width="4" height="6" rx="1.3"/><path d="M20 19v1a3 3 0 01-3 3h-3"/></svg>',
+          'fa-thumbs-up': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 22V11M2 13v7a2 2 0 002 2h12.7a2 2 0 002-1.6l1.4-7A2 2 0 0018 11h-5l1-5.5A1.5 1.5 0 0012.6 3.6L7 11"/></svg>',
+          'fa-globe': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a13 13 0 010 18M12 3a13 13 0 000 18"/></svg>',
+          'fa-viber': '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.9 2 3 5.4 3 9.9c0 2.5 1.2 4.7 3.1 6.2-.1.9-.4 2.5-.5 3.1-.1.4.2.6.5.4.6-.3 2.4-1.4 3.2-1.9.9.2 1.8.3 2.7.3 5.1 0 9-3.4 9-7.9C21 5.4 17.1 2 12 2zm4.7 11.4c-.2.4-.9.8-1.3.9-.4.1-.8.2-2.7-.6-2.3-1-3.8-3.3-3.9-3.5-.1-.2-.9-1.2-.9-2.3 0-1.1.6-1.6.8-1.8.2-.2.4-.3.6-.3h.4c.2 0 .4 0 .5.4.2.5.7 1.7.7 1.8.1.2.1.3 0 .5-.1.2-.2.3-.3.4-.1.2-.3.3-.4.5-.1.2-.3.3-.1.6.2.4 1 1.5 2.1 2.1.2.1.4.2.6 0 .2-.1.8-.9 1-1.2.2-.3.4-.2.6-.1.2.1 1.4.7 1.6.8.2.1.4.2.4.3.1.2.1.7-.2 1.1z"/></svg>'
+        };
+        document.querySelectorAll('i[class*="fa-"]').forEach(function (el) {
+          for (var cls in svgMap) {
+            if (el.classList.contains(cls)) {
+              el.innerHTML = svgMap[cls];
+              el.style.display = 'inline-flex';
+              el.style.alignItems = 'center';
+              el.style.justifyContent = 'center';
+              var svg = el.querySelector('svg');
+              if (svg) { svg.style.width = '1em'; svg.style.height = '1em'; }
+              break;
+            }
+          }
+        });
+      }
+      testIcon.remove();
+    }, 250);
+  });
+</script>
+<style>
+  :root{
+    --navy:#0a2e6e;
+    --navy-dark:#0a2557;
+    --blue:#1f6fd6;
+    --blue-light:#3fa9f5;
+    --orange:#ff8a3d;
+    --orange-dark:#ff7a1f;
+    --bg:#f4f7fb;
+    --white:#ffffff;
+    --text-dark:#0c1e3e;
+    --text-muted:#5b6b85;
+    --radius:18px;
+    --shadow-soft:0 10px 30px rgba(10,46,110,0.08);
+    --shadow-card:0 14px 34px rgba(10,46,110,0.10);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
     margin:0;
+    font-family:'Manrope', 'Segoe UI', Arial, sans-serif;
+    background:var(--bg);
+    color:var(--text-dark);
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .wrap{
+    max-width:1100px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  img{max-width:100%;display:block;}
+
+  /* ===== HEADER ===== */
+  header.top{
+    background:var(--white);
+    padding:22px 0;
+    border-bottom:1px solid #eef1f6;
+  }
+  .top-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:24px;
+    flex-wrap:wrap;
+  }
+  .logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-weight:800;
+    font-size:26px;
+    color:var(--navy);
+    text-decoration:none;
+    letter-spacing:-0.5px;
+  }
+  .logo img{height:42px;width:auto;}
+  .logo .net-part{color:var(--blue-light);font-weight:700;}
+
+  .phones{
+    display:flex;
+    align-items:center;
+    gap:14px;
+  }
+  .phones .phone-icon{
+    width:46px;
+    height:46px;
+    flex-shrink:0;
+    border-radius:50%;
+    background:#eaf2ff;
+    color:var(--navy);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:19px;
+    border:1px solid #d7e6fb;
+  }
+  .phones .numbers{
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+    font-weight:700;
+    font-size:17px;
+    color:var(--navy);
+    line-height:1.35;
+  }
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;
+    background:
+      linear-gradient(180deg, rgba(8,18,40,0.20) 0%, rgba(8,18,40,0.55) 65%, rgba(8,18,40,0.78) 100%),
+      url('bg.png') center center / cover no-repeat;
+    color:#fff;
+    overflow:hidden;
+  }
+  .hero-inner{
+    padding:60px 24px 50px;
+  }
+  .hero h1{
+    font-size:44px;
+    line-height:1.12;
+    font-weight:800;
+    letter-spacing:-0.5px;
+    margin:0 0 26px;
+    text-shadow:0 2px 18px rgba(0,0,0,0.35);
+    max-width:680px;
+  }
+
+  .hero-content{
+    display:flex;
+    gap:36px;
+    align-items:flex-start;
+    flex-wrap:wrap;
+  }
+
+  .features-list{
+    list-style:none;
+    margin:0;
+    padding:0;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    flex:1 1 380px;
+    min-width:280px;
+  }
+  .features-list li{
+    display:flex;
+    align-items:flex-start;
+    gap:12px;
+    font-size:16.5px;
+    font-weight:600;
+    line-height:1.4;
+    text-shadow:0 1px 8px rgba(0,0,0,0.35);
+  }
+  .features-list li i{
+    color:var(--orange);
+    background:rgba(255,255,255,0.95);
+    border-radius:50%;
+    width:24px;
+    height:24px;
+    min-width:24px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:13px;
+    margin-top:1px;
+  }
+
+  .gift-card{
+    background:#ffffff;
+    color:var(--text-dark);
+    border-radius:var(--radius);
+    padding:26px 28px;
+    box-shadow:var(--shadow-card);
+    flex:1 1 360px;
+    min-width:280px;
+    display:flex;
+    gap:18px;
+    align-items:flex-start;
+  }
+  .gift-icon{
+    width:54px;
+    height:54px;
+    min-width:54px;
+    border-radius:50%;
+    background:#fff1e6;
+    color:var(--orange-dark);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:24px;
+  }
+  .gift-card h3{
+    margin:0 0 8px;
+    font-size:18.5px;
+    font-weight:800;
+    color:var(--navy);
+    line-height:1.3;
+  }
+  .gift-card p{
+    margin:0;
+    font-size:14.5px;
+    color:var(--text-muted);
+    line-height:1.5;
+  }
+
+  /* ===== TARIFFS ===== */
+  .tariffs{
+    padding:60px 0 50px;
+    text-align:center;
+  }
+  .tariffs h2{
+    font-size:32px;
+    font-weight:800;
+    color:var(--navy);
+    margin:0 0 36px;
+  }
+  .tariff-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:22px;
+  }
+  .tariff-card{
+    background:#fff;
+    border-radius:var(--radius);
+    border:1px solid #e7edf7;
+    box-shadow:var(--shadow-soft);
+    padding:28px 18px 22px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:6px;
+  }
+  .tariff-card .name{
+    font-size:21px;
+    font-weight:800;
+    color:var(--navy);
+    margin-bottom:6px;
+  }
+  .tariff-card .label{
+    font-size:13.5px;
+    color:var(--text-muted);
+    font-weight:600;
+  }
+  .tariff-card .speed{
+    font-size:25px;
+    font-weight:800;
+    color:var(--orange-dark);
+    margin-bottom:10px;
+  }
+  .gauge{
+    width:88px;
+    height:88px;
+    margin:6px 0 14px;
+  }
+  .tariff-card .price{
+    background:var(--navy);
+    color:#fff;
+    font-weight:800;
+    font-size:17px;
+    border-radius:10px;
+    padding:11px 14px;
+    width:100%;
+    text-align:center;
+  }
+
+  /* ===== CTA / VIBER ===== */
+  .cta-section{
+    position:relative;
+    padding:60px 0 70px;
+    text-align:center;
+    overflow:hidden;
+  }
+  .dots-left, .dots-right{
+    position:absolute;
+    top:30px;
+    width:160px;
+    height:160px;
+    background-image:radial-gradient(circle, #cfe0fa 3px, transparent 3.5px);
+    background-size:18px 18px;
+    opacity:0.8;
+    z-index:0;
+  }
+  .dots-left{left:-30px;}
+  .dots-right{
+    right:-30px;
+    background-image:radial-gradient(circle, #ffd9b8 3px, transparent 3.5px);
+  }
+  .cta-section h2{
+    font-size:30px;
+    font-weight:800;
+    color:var(--navy);
+    margin:0 0 14px;
+    position:relative;
+    z-index:1;
+  }
+  .cta-section p{
+    font-size:16.5px;
+    color:var(--text-muted);
+    margin:0 0 30px;
+    position:relative;
+    z-index:1;
+  }
+  .viber-btn{
+    position:relative;
+    z-index:1;
+    display:inline-flex;
+    align-items:center;
+    gap:16px;
+    background:linear-gradient(135deg,#7d5fe0,#6a4fd1);
+    color:#fff;
+    border-radius:18px;
+    padding:18px 34px;
+    text-decoration:none;
+    box-shadow:0 14px 30px rgba(106,79,209,0.35);
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .viber-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 18px 36px rgba(106,79,209,0.45);
+  }
+  .viber-btn .viber-icon{
+    width:50px;
+    height:50px;
+    min-width:50px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.18);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:24px;
+  }
+  .viber-btn .viber-text{
+    text-align:left;
+    line-height:1.35;
+  }
+  .viber-btn .viber-text strong{
+    display:block;
+    font-size:18px;
+    font-weight:800;
+  }
+  .viber-btn .viber-text span{
+    display:block;
+    font-size:15px;
+    font-weight:600;
+    opacity:0.92;
+  }
+
+  /* ===== BENEFITS BAR ===== */
+  .benefits{
+    background:linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+    color:#fff;
+    padding:46px 0;
+  }
+  .benefits-grid{
+    display:grid;
+    grid-template-columns:repeat(5, 1fr);
+    gap:18px;
+    text-align:center;
+  }
+  .benefit-item{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:14px;
+    padding:0 8px;
+  }
+  .benefit-icon{
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    border:1.5px solid rgba(255,255,255,0.45);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:24px;
+    color:#fff;
+  }
+  .benefit-item h4{
+    margin:0;
+    font-size:15.5px;
+    font-weight:800;
+  }
+  .benefit-item p{
+    margin:0;
+    font-size:13px;
+    color:#c9d6ee;
+    line-height:1.45;
+  }
+
+  /* ===== FOOTER ===== */
+  footer.bottom{
+    background:#fff;
+    padding:26px 0;
+    border-top:1px solid #eef1f6;
+  }
+  .bottom-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:14px;
+  }
+  .bottom-inner .logo{font-size:21px;}
+  .bottom-inner .logo img{height:34px;}
+  .copy{
+    text-align:center;
+    font-size:13.5px;
+    color:var(--text-muted);
+    line-height:1.5;
+  }
+  .site-link{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-weight:700;
+    color:var(--navy);
+    text-decoration:none;
+    font-size:14.5px;
+  }
+  .site-link i{color:var(--blue);font-size:17px;}
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 880px){
+    .tariff-grid{grid-template-columns:repeat(2, 1fr);}
+    .benefits-grid{grid-template-columns:repeat(3, 1fr);}
+    .hero h1{font-size:34px;}
+  }
+  @media (max-width: 600px){
+    .top-inner{flex-direction:column;align-items:flex-start;}
+    .phones{flex-direction:row;}
+    .hero h1{font-size:28px;}
+    .tariff-grid{grid-template-columns:1fr 1fr;gap:14px;}
+    .benefits-grid{grid-template-columns:repeat(2, 1fr);}
+    .viber-btn{flex-direction:row;padding:16px 22px;}
+    .bottom-inner{flex-direction:column;text-align:center;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="top">
+  <div class="wrap top-inner">
+    <a href="#" class="logo">
+      <img src="logo.png" alt="Boryspil.net logo" onerror="this.style.display='none'">
+      Boryspil<span class="net-part">.net</span>
+    </a>
+    <div class="phones">
+      <div class="phone-icon"><i class="fa-solid fa-phone"></i></div>
+      <div class="numbers">
+        <span>(095) 222-71-41</span>
+        <span>(096) 141-71-41</span>
+        <span>(093) 506-18-18</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="wrap hero-inner">
+    <h1>НАЙКРАЩИЙ ІНТЕРНЕТ<br>ТВОГО МІСТА</h1>
+    <div class="hero-content">
+      <ul class="features-list">
+        <li><i class="fa-solid fa-check"></i> Підключення по оптоволокну</li>
+        <li><i class="fa-solid fa-check"></i> Робота інтернету 24/7</li>
+        <li><i class="fa-solid fa-check"></i> Послуги інтернет-телебачення</li>
+        <li><i class="fa-solid fa-check"></i> Цілодобова технічна підтримка</li>
+        <li><i class="fa-solid fa-check"></i> Підключення безкоштовне за умови проплати тарифу за 3 місяці!</li>
+      </ul>
+
+      <div class="gift-card">
+        <div class="gift-icon"><i class="fa-solid fa-gift"></i></div>
+        <div>
+          <h3>При оплаті інтернету за три місяці — підключення безкоштовне!</h3>
+          <p>А ці кошти зарахуються Вам в рахунок майбутньої абонентської плати за три місяці.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TARIFFS ===== -->
+<section class="tariffs">
+  <div class="wrap">
+    <h2>Наші тарифи</h2>
+    <div class="tariff-grid">
+
+      <div class="tariff-card">
+        <div class="name">Flat 50</div>
+        <div class="label">швидкість до</div>
+        <div class="speed">50 Мб/с</div>
+        <svg class="gauge" viewBox="0 0 100 60">
+          <path d="M10,55 A40,40 0 0,1 90,55" fill="none" stroke="#dbe6f7" stroke-width="8" stroke-linecap="round"/>
+          <path d="M10,55 A40,40 0 0,1 45,15.5" fill="none" stroke="#1f6fd6" stroke-width="8" stroke-linecap="round"/>
+          <line x1="50" y1="55" x2="33" y2="27" stroke="#0a2e6e" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="50" cy="55" r="4" fill="#0a2e6e"/>
+        </svg>
+        <div class="price">230 грн/місяць</div>
+      </div>
+
+      <div class="tariff-card">
+        <div class="name">Flat 100</div>
+        <div class="label">швидкість до</div>
+        <div class="speed">100 Мб/с</div>
+        <svg class="gauge" viewBox="0 0 100 60">
+          <path d="M10,55 A40,40 0 0,1 90,55" fill="none" stroke="#dbe6f7" stroke-width="8" stroke-linecap="round"/>
+          <path d="M10,55 A40,40 0 0,1 60,15.5" fill="none" stroke="#1f6fd6" stroke-width="8" stroke-linecap="round"/>
+          <line x1="50" y1="55" x2="50" y2="18" stroke="#0a2e6e" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="50" cy="55" r="4" fill="#0a2e6e"/>
+        </svg>
+        <div class="price">290 грн/місяць</div>
+      </div>
+
+      <div class="tariff-card">
+        <div class="name">Flat 300</div>
+        <div class="label">швидкість до</div>
+        <div class="speed">300 Мб/с</div>
+        <svg class="gauge" viewBox="0 0 100 60">
+          <path d="M10,55 A40,40 0 0,1 90,55" fill="none" stroke="#dbe6f7" stroke-width="8" stroke-linecap="round"/>
+          <path d="M10,55 A40,40 0 0,1 75,21" fill="none" stroke="#1f6fd6" stroke-width="8" stroke-linecap="round"/>
+          <line x1="50" y1="55" x2="68" y2="29" stroke="#0a2e6e" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="50" cy="55" r="4" fill="#0a2e6e"/>
+        </svg>
+        <div class="price">340 грн/місяць</div>
+      </div>
+
+      <div class="tariff-card">
+        <div class="name">Flat 1000</div>
+        <div class="label">швидкість до</div>
+        <div class="speed">1000 Мб/с</div>
+        <svg class="gauge" viewBox="0 0 100 60">
+          <path d="M10,55 A40,40 0 0,1 90,55" fill="none" stroke="#dbe6f7" stroke-width="8" stroke-linecap="round"/>
+          <path d="M10,55 A40,40 0 0,1 85,38" fill="none" stroke="#1f6fd6" stroke-width="8" stroke-linecap="round"/>
+          <line x1="50" y1="55" x2="78" y2="40" stroke="#0a2e6e" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="50" cy="55" r="4" fill="#0a2e6e"/>
+        </svg>
+        <div class="price">440 грн/місяць</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA / VIBER ===== -->
+<section class="cta-section">
+  <div class="dots-left"></div>
+  <div class="dots-right"></div>
+  <div class="wrap">
+    <h2>ВАС ЗАЦІКАВИЛО?</h2>
+    <p>Напишіть нам у Viber — і ми відповімо на всі ваші запитання!</p>
+    <a href="viber://chat?number=%2B380XXXXXXXXX" class="viber-btn">
+      <span class="viber-icon"><i class="fa-brands fa-viber"></i></span>
+      <span class="viber-text">
+        <strong>Написати у Viber</strong>
+        <span>+38 0XX XXX XX XX</span>
+      </span>
+    </a>
+  </div>
+</section>
+
+<!-- ===== BENEFITS BAR ===== -->
+<section class="benefits">
+  <div class="wrap benefits-grid">
+
+    <div class="benefit-item">
+      <div class="benefit-icon"><i class="fa-solid fa-diagram-project"></i></div>
+      <h4>Оптоволоконний інтернет</h4>
+      <p>Стабільне та швидке з'єднання</p>
+    </div>
+
+    <div class="benefit-item">
+      <div class="benefit-icon"><i class="fa-solid fa-tv"></i></div>
+      <h4>Інтернет-телебачення</h4>
+      <p>Великий вибір каналів у відмінній якості</p>
+    </div>
+
+    <div class="benefit-item">
+      <div class="benefit-icon"><i class="fa-solid fa-clock"></i></div>
+      <h4>Підтримка 24/7</h4>
+      <p>Ми завжди на зв'язку та готові допомогти</p>
+    </div>
+
+    <div class="benefit-item">
+      <div class="benefit-icon"><i class="fa-solid fa-headset"></i></div>
+      <h4>Технічна підтримка</h4>
+      <p>Оперативне вирішення будь-яких питань</p>
+    </div>
+
+    <div class="benefit-item">
+      <div class="benefit-icon"><i class="fa-solid fa-thumbs-up"></i></div>
+      <h4>Вигідні умови</h4>
+      <p>Чесні ціни та акції для наших абонентів</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="bottom">
+  <div class="wrap bottom-inner">
+    <a href="#" class="logo">
+      <img src="logo.png" alt="Boryspil.net logo" onerror="this.style.display='none'">
+      Boryspil<span class="net-part">.net</span>
+    </a>
+    <div class="copy">© 2025 Boryspil.net<br>Всі права захищені</div>
+    <a href="https://www.boryspil.net" class="site-link" target="_blank">
+      <i class="fa-solid fa-globe"></i> www.boryspil.net
+    </a>
+  </div>
+</footer>
+
+</body>
+</html>
     padding:0;
     box-sizing:border-box;
 }
